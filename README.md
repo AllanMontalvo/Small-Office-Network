@@ -54,6 +54,7 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 - Configure F0/2 on ASW-A1 as a trunk port for WLC1 to support VLANs 40 (Wi-Fi) and 99
 	(Management), make VLAN 99 as the native VLAN, and disable DTP.
 - Shutdown all unused ports on Access and Distribution switches.
+- Verify configuration with show command of etherchannel summary, vlan, vtp, interface switchport, and interface status.
 
 
 **Part 3 IP Address, Layer-3 EtherChannel**
@@ -112,6 +113,7 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 	- ASW-B1: 10.0.0.20/28
 	- ASW-B2: 10.0.0.21/28
 	- ASW-B3: 10.0.0.22/28
+ - Verify IP Address configuration with "show ip interface brief" command.
 
 
 **Part 4 HSRP**
@@ -171,6 +173,7 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 	- DSW-A1: 10.5.0.2
 	- DSW-A2: 10.5.0.3
 	- VIP: 10.5.0.1
+ - Verify configuration with "show standby" command 
 	
 	
 **Part 5 Rapid Spanning Tree Protocol**
@@ -188,9 +191,10 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 
 - In Office B, set DSW-B1 as the Backup Root Bridge for VLAN 20 and 40 and set DSW-B2
 	as the Backup Root Bridge for VLAN 10 and 99.
+-  Verify Spanning Tree configuration with "show spanning-tree active" command.
 
 - In all Access switches, enable PortFast and DPDU Guard on interfaces with end host.
-
+-Verify PortFast and DPDU Guard is enable with "show run" command and view interface F0/1 details.
 
 
 **Part 6 Static and Dynamic Routing**
