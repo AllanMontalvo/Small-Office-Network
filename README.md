@@ -224,6 +224,8 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 		ensuring their participation in the OSPF routing process.
 	- Configure all physical connections between OSPF neighbors with a network type 
 		that will not select DR/BDR.
+- Verify Dynamic and Static Route with "show ip route" command.
+- Also verify OSPF neighbors with "show ip ospf neighbor" command.
 
 **Part 7 DHCP**
 
@@ -267,9 +269,13 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 		- Default gateway: 10.6.0.1
 		- Domain name: jeremysitlab.com
 		- DNS server: 10.5.0.4
-- Configure Distribution switches to relay wired DHCP clients' broadcast message to 
+- Verify DHCP Pool with "show ip dhcp pool" command.
+
+- Configure Vlans in Distribution switches to relay-wired DHCP clients' broadcast message to 
 	Router 1's Loopback0 IP address.
-	
+- Verify configuration of relay-wired DHCP of Vlans with "show ip inter vlan (number)" command and view the helper address
+  	section.
+
 
 **Part 8 DNS**
 
@@ -280,7 +286,8 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 	- www.jeremysitlab.com = jeremysitlab.com
 - Configure all routers and switches to use domain name jeremysitlab.com and use
 	Server 1(10.5.0.4) as their default DNS server.
-	
+- Verify DNS configuration by pinging the websites on the pcs in command prompt with "ping (website)"
+  	and see the ip address the pc is pinging.
 	
 **Part 9 NTP**
 
@@ -289,18 +296,21 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 - Configure Router 1 to generate authentication key number 1 and password "ccna".
 - Configure all other switches to use Router 1's Loopback0 interface as their 
 	NTP server using the authentication key and password.
+- Verify NTP configuration with "show ntp status" command.
 
 	
 **Part 10 SNMP**
 
-- Configure the SNMP community string SNMPSTRING on all routers and switches to 
-	GET messages.
+- Configure the SNMP community string SNMPSTRING on all routers and switches to allow
+	GET messages but not SET messages.
+- Verify SNMP community string with the command "show run | include snmp".
 	
 
 **Part 11 Syslog**
 
 - Configure all routers and switches to log all messages to Server 1 at all levels.
 - Enable logging to the buffer with 8192 bytes of reserve memory for the buffer.
+- Verify syslog setting with the command "show logging" command.
 
 
 **Part 12 FTP**
@@ -310,6 +320,7 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 - Configure Router 1 to boot "c2900-universalk9-mz.SPA.155-3.M4a.bin" from flash and 
 	reboot router.
 - Once rebooted, delete file "c2900-universalk9-mz.SPA.151-4.M4.bin" from flash.
+- Verify new IOS on router with "show version" command.
 
 
 **Part 13 SSH**
@@ -320,34 +331,38 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 - Create an ACL 1 that will allow packets from Office A's PCs subnet.
 - Configure VTY lines to allow only SSH connections, require local user account login,
 	and synchronous logging.
-
+- Verify configuration of VTY lines with command "show run | section line vty".
 
 **Part 14 NAT**
 
 - Configure a static NAT on  Router 1 to enable end hosts on the Internet to access
 	Server 1 via IP address 203.0.113.113
-- Configure a standard ACL 2 with the appriate inside local address range.
+- verify configuration of static NAT with "show ip nat translation".
+- Configure a standard ACL 2 with the appriate inside local address range on Router 1.
 	- Office A PCs: 10.1.0.0/24
 	- Office A Phones: 10.2.0.0/24
 	- Office B PCs: 10.3.0.0/24
 	- Office B Phones: 10.4.0.0/24
 	- Wi-Fi: 10.6.0.0/24
-- Configure a range of of inside global addresses called POOL1 from 203.0.113.200-203.0.113.207
+- Configure a range of inside global addresses called POOL1 from 203.0.113.200-203.0.113.207
 	with subnet mask of /29.
 - Map ACL 2 to POOL1 and enable PAT.
+- Verify pool with "show ip nat statistic" command.
 
 
 **Part 15 LLDP**
 
 - Disable CDP on all routers and switches and enable LLDP
 - Disable LLDP Tx on each Access switch's access port (F0/1).
+- Veify LLDP usage with command "show lldp neighbor".
 
 **Part 16 ACLs**
 
-- Configure an extended ACL called OfficeA_to_OfficeB with the following.
-	- Allow ICMP messages from PCs of Office A to PCs of Office B.
-	- Deny any traffic from PCs of Office A to PCs of Office B.
+- Configure an extended ACL called OfficeA_to_OfficeB on Distribution switches with the following.
+	- Allow ICMP messages from Office A PCs (10.1.0.0/24) to Office B PCs (10.3.0.0/24).
+	- Deny any traffic from Office A PCs (10.1.0.0/24) to Office B PCs (10.3.0.0/24).
 	- Allow all other traffic trough.
+ - Verify extended ACL with "show ip access-list" command.
 
 	
 **Part 17 Port Security**
@@ -362,6 +377,7 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 	- Configure for a restrict violation mode.
 	- Configure to automatically save the secure MAC address they learn to 
 		running-config with sticky MAC address.
+- Verify Port Security with the command "show port-security interface f0/1". 
 		
 
 **Part 18 DHCP Snooping**
@@ -372,14 +388,17 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 	- Disable insertion of DHCP Option 82.
 	- Set a DHCP rate limit of 15 pps on all activce untrusted ports (F0/1).
 	- Set a DCHP rate limit of 100 pps on interface F0/2 on switch ASW-A1.
+ - Verify DHCP snooping configuration with command "show ip dhcp snooping".
 	
 	
 **Part 19 DAI**
 
 - Configure all Access switches in Office A and B with Dynamic ARP Inspection.
 	- Enable DAI for VLANs 10, 20, 30, 40, and 99 in appropriate switches.
-	- Enable trust on interfaces G0/1 and G0/2.
 	- Enable validation checks Destination MAC, Source MAC, and IP.
+   	- Verify DAI and validation checks with command "show ip arp inspection vlan (number)".
+   	- Enable trust on interfaces G0/1 and G0/2.
+  	- Verify trusted interface with command "show ip arp inspection [g0/1 or g0/2]".
 
 
 **Part 20 IPv6**
@@ -399,6 +418,7 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 	- Configure IPv6 address for interface G1/0/1 on CSW2 with EUI-64: 2001:db8:a2::/64
 	- Enable IPv6 on PortChannel1 on both CSW1 and CSW2 without using "ipv6 address"
 		command.
+- Verify IPv6 address configuration with command "show ipv6 interface brief".
 		
 		
 		
@@ -421,6 +441,8 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 	- ID: 1
 	- Status: Enable
 	- Security: Enable WPA2 Policy with AES encryption, PSK of "cisco123"
+ - Verify laptop connection to the office network by selecting a laptop, under the Config tab, choosing Wireless0,
+   setting WPA2-PSK with passphrase "cisco123," and checking the assigned IP address.
 
 
 
