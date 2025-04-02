@@ -308,7 +308,7 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 
 **Part 11 Syslog**
 
-- Configure all routers and switches to log all messages to Server 1 at all levels.
+- Configure all routers and switches to log all messages to Server 1 (10.5.0.4) at all levels.
 - Enable logging to the buffer with 8192 bytes of reserve memory for the buffer.
 - Verify syslog setting with the command "show logging" command.
 
