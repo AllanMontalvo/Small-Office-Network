@@ -398,7 +398,7 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 	- Enable validation checks Destination MAC, Source MAC, and IP.
    	- Verify DAI and validation checks with command "show ip arp inspection vlan (number)".
    	- Enable trust on interfaces G0/1 and G0/2.
-  	- Verify trusted interface with command "show ip arp inspection [g0/1 or g0/2]".
+- Verify trusted interface with command "show ip arp inspection [g0/1 or g0/2]".
 
 
 **Part 20 IPv6**
