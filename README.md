@@ -22,18 +22,42 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 - Configure the conslole line to require login with login with a local account with 30 minute inactivity timeout. Also enabling synchronous logging.
 - Verify configuration by running a "show run" command to view the configuration made.
 
+![Device name and Password](https://github.com/user-attachments/assets/b8eed00d-02be-4e78-864e-6c98bb53043e)
+![Device name and Password 9](https://github.com/user-attachments/assets/1a6ad282-62c0-4969-9da6-00c2ec175612)
+![Username and password](https://github.com/user-attachments/assets/aa30898a-84cd-4902-9be5-64c08810c445)
+![Username and password 9](https://github.com/user-attachments/assets/7f48a677-9f1c-49dc-a67a-e7f83f22071a)
+![Local logging](https://github.com/user-attachments/assets/8a84f43a-a356-43d0-a51d-5b9629ea0e76)
+
+
+
 
 **Part 2: Vlans, Layer-2 EtherChannel**
 
 - In Office A, configure a Layer-2 EtherChannel with PortChannel1 between DSW-A1 and DSW-A2 using PAgP.
 - In Office B, configure a Layer-2 EtherChannel with PortChannel1 between DSW-B1 and DSW-B2 using LACP.
+- Verify configuration with the command "show etherchannel summary".
+
+![Etherchannel Summary DSW-A1](https://github.com/user-attachments/assets/9e60db1b-6029-47d6-97f9-6bb35bc2fbef)
+![EtherChannel Summary DSW-B1](https://github.com/user-attachments/assets/246bac5c-58be-446d-af6d-1b3ed4bd5df0)
+
 - Configure all links between Access and Distribution switches, including EtherChannel links as trunk links.
 	- Setting Office A devices to allow VLAN 10, 20, 40, and 99 through trunk.
 	- Setting Office B devices to allow VLAN 10, 20, 30, and 99 through trunk.
 	- Set each trunk's native VLAN to be VLAN 1000
 	- Disable DTP on all ports.
-- Update one Distribution switch in each Office to to VTPv2, use the domain name JeremysITLab, and 
+ - Verify trunk configuration by using command "show interface (interface port) switchport", except Port-Channel 1or "show run".
+   
+![Trunk Configuration DSW-A1](https://github.com/user-attachments/assets/4363724f-1f72-417b-b71f-b6cb50a5a93a)
+![Trunk Configuration DSW-B1](https://github.com/user-attachments/assets/369c1bb2-8166-4b52-b2c4-c5b1f95b17cd)
+![Trunk Conf DSW-A1](https://github.com/user-attachments/assets/f2966b37-46ab-43e9-97f0-8f17ec4a30c5)
+![Trunk Conf DSW-B1](https://github.com/user-attachments/assets/71492f5e-b2d5-441a-81b9-402de8c7979f)
+
+- Update one Distribution switch in each Office to to VTPv2 and configure domain name to JeremysITLab. Also 
 	configure each Access switches to a VTP client.
+- Verify configuration with the command "show vtp status".
+
+![VTP](https://github.com/user-attachments/assets/3cb02c5c-5019-40c4-bf00-25aeb8661b1b)
+
 - Created and named 4 VLANs for Office A on DSW-A1.
 	- VLAN 10: PCs
 	- VLAN 20: Phones
@@ -44,6 +68,11 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 	- VLAN 20: Phones
 	- VLAN 40: Wi-Fi
 	- VLAN 99: Management
+- Verify configuration with the command "show vlan".
+
+![Vlan DSW-A1](https://github.com/user-attachments/assets/905476c4-1229-4343-a67f-cce78cd14593)
+![Vlan DSW-B1](https://github.com/user-attachments/assets/57af1b93-b567-4cb9-9104-4ccfcb74ea8e)
+
 - Configure F0/1 on each Access switch as an access port and explicility disable DTP
 	with the following.
 	- ASW-A2, ASW-A3, ASW-B2 are to be configure with VLAN 10 for PCs and VLAN 20 for 
@@ -53,8 +82,17 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 		FlexConnect for LWAP.
 - Configure F0/2 on ASW-A1 as a trunk port for WLC1 to support VLANs 40 (Wi-Fi) and 99
 	(Management), make VLAN 99 as the native VLAN, and disable DTP.
+- Verify configuration with the command "show inter (interface port) switchport" or "show run".
+
+![Access ASW-A1](https://github.com/user-attachments/assets/d173b6a1-728b-4721-9d35-3b2176185298)
+![Access ASW-B2](https://github.com/user-attachments/assets/51608bba-3a8e-46ae-a136-e528de8789a9)
+![Access ASW-B3](https://github.com/user-attachments/assets/04dcef9a-242e-4afc-9717-c12a31874a52)
+
 - Shutdown all unused ports on Access and Distribution switches.
-- Verify configuration with show command of etherchannel summary, vlan, vtp, interface switchport, and interface status.
+- Verify port shutdown with the command "show ip inter brief".
+ 
+![IP shutdown](https://github.com/user-attachments/assets/257fc0cd-3e26-4f5e-808e-2fe61af4083a)
+
 
 
 **Part 3 IP Address, Layer-3 EtherChannel**
@@ -115,6 +153,11 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 	- ASW-B3: 10.0.0.22/28
  - Verify IP Address configuration with "show ip interface brief" command.
 
+![IP Config R1](https://github.com/user-attachments/assets/584693bc-c0fa-4432-9e03-a72669c54f49)
+![IP Config CSW1](https://github.com/user-attachments/assets/2a2d81a9-d993-4c9c-a49c-841c8c0ab638)
+![IP Config DSW-A1](https://github.com/user-attachments/assets/bdde22f9-a6d8-4c21-aef2-4c0c6b9d8fc4)
+![IP Config ASW-A1](https://github.com/user-attachments/assets/47d6ca1a-47bb-4fab-a45e-fd312309553d)
+
 
 **Part 4 HSRP**
 
@@ -173,11 +216,13 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 	- DSW-A1: 10.5.0.2
 	- DSW-A2: 10.5.0.3
 	- VIP: 10.5.0.1
- - Verify configuration with "show standby" command 
-	
+ - Verify configuration with "show standby" command.
+    
+![HSRP DSW-1A](https://github.com/user-attachments/assets/f993223a-c436-489b-a866-e76700281e9c)
+![HSRP DSW-2A](https://github.com/user-attachments/assets/5468b3e8-35ac-4875-8951-ecb4d22ec2a4)
+
 	
 **Part 5 Rapid Spanning Tree Protocol**
-
 - Configure all Access and Distribution switches to Rapid-PVST+. 
 
 - In Office A, set DSW-A1 as the Root Bridge for VLAN 10 and 99 and set DSW-A2 as 
@@ -193,12 +238,16 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 	as the Backup Root Bridge for VLAN 10 and 99.
 -  Verify Spanning Tree configuration with "show spanning-tree active" command.
 
+![Spanning Tree 1](https://github.com/user-attachments/assets/edd61574-f59f-48b7-a5fb-78944e0ed0dc)
+![Spanning Tree 2](https://github.com/user-attachments/assets/ba6b99a9-abc4-40ca-9c3c-2ac37a7c4edd)
+
 - In all Access switches, enable PortFast and DPDU Guard on interfaces with end host.
 -Verify PortFast and DPDU Guard is enable with "show run" command and view interface F0/1 details.
 
+![FastGuard](https://github.com/user-attachments/assets/16e3b4b5-719a-47c1-a7a3-6aaf7170eaa9)
+
 
 **Part 6 Static and Dynamic Routing**
-
 - Configuration of Router 1: 
 	- Configure the Router-ID with loopback interface IP.
 	- Ensure interface Loopback0 is set to passive and OSPF is enable. 
@@ -225,7 +274,14 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 	- Configure all physical connections between OSPF neighbors with a network type 
 		that will not select DR/BDR.
 - Verify Dynamic and Static Route with "show ip route" command.
+
+![IP Route R1](https://github.com/user-attachments/assets/c766078e-a68b-4a91-b8fd-6b7fa8897427)
+![IP route CSW1](https://github.com/user-attachments/assets/da21ed27-4d8e-492a-8315-fa99d96da0ef)
+![IP Route DSW-A1](https://github.com/user-attachments/assets/28989df2-a88f-4f16-ba1b-2e831140c9f4)
+
 - Also verify OSPF neighbors with "show ip ospf neighbor" command.
+
+![OSPF Neighbors](https://github.com/user-attachments/assets/61e072b3-eb85-4222-8f30-261643522827)
 
 **Part 7 DHCP**
 
@@ -271,10 +327,14 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 		- DNS server: 10.5.0.4
 - Verify DHCP Pool with "show ip dhcp pool" command.
 
+![DHCP Pool 1](https://github.com/user-attachments/assets/0b19feda-866a-4b10-81f0-cb7b0f4a1d86)
+![DHCP Pool 2](https://github.com/user-attachments/assets/d4f4ca42-4e35-4002-9cc4-fb9cac3d24fd)
+
 - Configure Vlans in Distribution switches to relay-wired DHCP clients' broadcast message to 
 	Router 1's Loopback0 IP address.
-- Verify configuration of relay-wired DHCP of Vlans with "show ip inter vlan (number)" command and view the helper address
-  	section.
+- Verify configuration of relay-wired DHCP of Vlans with "show ip inter vlan (number)" command and view the helper address section.
+
+ ![DCHP relay-wired](https://github.com/user-attachments/assets/47db6494-4580-44f0-aff5-abb17ae2f6a2)
 
 
 **Part 8 DNS**
@@ -288,6 +348,9 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 	Server 1(10.5.0.4) as their default DNS server.
 - Verify DNS configuration by pinging the websites on the pcs in command prompt with "ping (website)"
   	and see the ip address the pc is pinging.
+
+  ![DNS ping](https://github.com/user-attachments/assets/3a800e72-988b-438b-a364-13f8bf767b16)
+
 	
 **Part 9 NTP**
 
@@ -298,13 +361,17 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 	NTP server using the authentication key and password.
 - Verify NTP configuration with "show ntp status" command.
 
+![NTP](https://github.com/user-attachments/assets/c5717b2b-a061-4f6e-bdff-17f9f6a80ece)
+
 	
 **Part 10 SNMP**
 
 - Configure the SNMP community string SNMPSTRING on all routers and switches to allow
 	GET messages but not SET messages.
 - Verify SNMP community string with the command "show run | include snmp".
-	
+
+![SNMP message](https://github.com/user-attachments/assets/70a62cb2-ed47-430a-bdd8-5047f24270b5)
+
 
 **Part 11 Syslog**
 
@@ -312,15 +379,23 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 - Enable logging to the buffer with 8192 bytes of reserve memory for the buffer.
 - Verify syslog setting with the command "show logging" command.
 
+![Syslog](https://github.com/user-attachments/assets/2821270e-af98-4c6d-ad0e-fdd354ba5838)
+
 
 **Part 12 FTP**
 
 - Configure Router 1's default FTP credentials with username "cisco" and password "cisco".
+- Verify FTP credenials configuration with command "show run | section ftp".
+
+![FTP username and password](https://github.com/user-attachments/assets/60024bc4-d857-4a5f-8147-c645bcb45276)
+
 - Copy IOS file "c2900-universalk9-mz.SPA.155-3.M4a.bin" from Server 1 to flash.
 - Configure Router 1 to boot "c2900-universalk9-mz.SPA.155-3.M4a.bin" from flash and 
 	reboot router.
 - Once rebooted, delete file "c2900-universalk9-mz.SPA.151-4.M4.bin" from flash.
 - Verify new IOS on router with "show version" command.
+
+![IOS ver](https://github.com/user-attachments/assets/1681e205-24df-4fb3-95ed-3720de04f3f9)
 
 
 **Part 13 SSH**
@@ -332,6 +407,9 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 - Configure VTY lines to allow only SSH connections, require local user account login,
 	and synchronous logging.
 - Verify configuration of VTY lines with command "show run | section line vty".
+
+![SSH](https://github.com/user-attachments/assets/bb4a7785-620f-474e-989e-36a29e35f226)
+
 
 **Part 14 NAT**
 
@@ -349,6 +427,8 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 - Map ACL 2 to POOL1 and enable PAT.
 - Verify pool with "show ip nat statistic" command.
 
+![NAT](https://github.com/user-attachments/assets/512d25c5-5e22-4a87-b4ba-43da4c0779bd)
+
 
 **Part 15 LLDP**
 
@@ -356,13 +436,19 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 - Disable LLDP Tx on each Access switch's access port (F0/1).
 - Veify LLDP usage with command "show lldp neighbor".
 
+  ![LLDP](https://github.com/user-attachments/assets/681f647e-788f-48aa-9d3c-51ebf4e5a5c8)
+
+
 **Part 16 ACLs**
 
-- Configure an extended ACL called OfficeA_to_OfficeB on Distribution switches with the following.
+- Configure an extended ACL called OfficeA_to_OfficeB on Distribution switches with the following on DSW-A1 and DSW-A2.
 	- Allow ICMP messages from Office A PCs (10.1.0.0/24) to Office B PCs (10.3.0.0/24).
 	- Deny any traffic from Office A PCs (10.1.0.0/24) to Office B PCs (10.3.0.0/24).
 	- Allow all other traffic trough.
  - Verify extended ACL with "show ip access-list" command.
+
+![ACL Extended ](https://github.com/user-attachments/assets/fe7b6109-13b7-4aec-b4f2-07f9f6a34a6e)
+
 
 	
 **Part 17 Port Security**
@@ -378,7 +464,9 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 	- Configure to automatically save the secure MAC address they learn to 
 		running-config with sticky MAC address.
 - Verify Port Security with the command "show port-security interface f0/1". 
-		
+
+![Port Security](https://github.com/user-attachments/assets/970736fe-68d2-4016-9520-d2cc07adfd20)
+
 
 **Part 18 DHCP Snooping**
 
@@ -389,16 +477,22 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 	- Set a DHCP rate limit of 15 pps on all activce untrusted ports (F0/1).
 	- Set a DCHP rate limit of 100 pps on interface F0/2 on switch ASW-A1.
  - Verify DHCP snooping configuration with command "show ip dhcp snooping".
-	
+
+ ![DHCP Snooping](https://github.com/user-attachments/assets/3bfd347f-0420-4d2a-8d01-1d18e9e06566)
+
 	
 **Part 19 DAI**
 
 - Configure all Access switches in Office A and B with Dynamic ARP Inspection.
 	- Enable DAI for VLANs 10, 20, 30, 40, and 99 in appropriate switches.
 	- Enable validation checks Destination MAC, Source MAC, and IP.
-   	- Verify DAI and validation checks with command "show ip arp inspection vlan (number)".
-   	- Enable trust on interfaces G0/1 and G0/2.
+- Verify DAI and validation checks with command "show ip arp inspection vlan (number)".
+![DAI validation](https://github.com/user-attachments/assets/aa148b84-0779-4f33-b195-606ed695ca13)
+
+- Enable trust on interfaces G0/1 and G0/2.
 - Verify trusted interface with command "show ip arp inspection [g0/1 or g0/2]".
+![DAI Trust](https://github.com/user-attachments/assets/e4b784ab-bde5-4269-ae92-c9d1e3db1b53)
+
 
 
 **Part 20 IPv6**
@@ -420,7 +514,10 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 		command.
 - Verify IPv6 address configuration with command "show ipv6 interface brief".
 		
-		
+![IPV6 R1](https://github.com/user-attachments/assets/484ad520-f64a-4730-91c5-ba952fd355a5)
+![IPv6 CSW1](https://github.com/user-attachments/assets/f5bb7b0b-7150-429b-b9fe-e6ab756b1b1c)
+
+	
 		
 **Part 21 Wireless**
 
@@ -443,7 +540,9 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 	- Security: Enable WPA2 Policy with AES encryption, PSK of "cisco123"
  - Verify laptop connection to the office network by selecting a laptop, under the Config tab, choosing Wireless0,
    setting WPA2-PSK with passphrase "cisco123," and checking the assigned IP address.
+- Please Note: The assign IP Address may not be within the desire IP range (10.6.0.0/24).
 
+![Wireless verify](https://github.com/user-attachments/assets/051e2409-b0f2-4a50-9ec5-cc6afd7659e4)
 
 
 
