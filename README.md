@@ -223,6 +223,7 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 
 	
 **Part 5 Rapid Spanning Tree Protocol**
+
 - Configure all Access and Distribution switches to Rapid-PVST+. 
 
 - In Office A, set DSW-A1 as the Root Bridge for VLAN 10 and 99 and set DSW-A2 as 
@@ -248,6 +249,7 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 
 
 **Part 6 Static and Dynamic Routing**
+
 - Configuration of Router 1: 
 	- Configure the Router-ID with loopback interface IP.
 	- Ensure interface Loopback0 is set to passive and OSPF is enable. 
