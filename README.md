@@ -2,7 +2,7 @@
 
 ![image](https://github.com/user-attachments/assets/3ce00251-40a6-4e38-a17a-42df0e5d8261)
 
-This Lab focuses on demonstrating the fundamental concepts to set up a a basic netowrk for a small office. It covers the essential elements of networking, such as hardware configuration and netowrk setup. The goal is to establish a functional network tailored to the requirements of the lab from Jeremy's IT Lab.
+This Lab focuses on demonstrating the fundamental concepts to set up a a basic network for a small office. It covers the essential elements of networking, such as hardware configuration and netowrk setup. The goal is to establish a functional network tailored to the requirements of the lab from Jeremy's IT Lab.
 
 <h1>Environments and Technologies Used</h1>
 
@@ -11,6 +11,9 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 
 **Program File**
 - [Jeremy's IT Lab CCNA Mega Lab](https://jitl.jp/mega-lab)
+
+**Source Command List**
+- [Small Office Network Source Command](https://github.com/AllanMontalvo/Small-Office-Network-Source-Command/blob/main/README.md)
 
 <h2>High-Level Deployment and Configuration Steps</h2>
 
@@ -547,5 +550,6 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 ![Wireless verify](https://github.com/user-attachments/assets/051e2409-b0f2-4a50-9ec5-cc6afd7659e4)
 
 
-
+<h3>Final Notes</h3>
+In this project, I successfully implemetned VLANs, IP addressing, Layer-3 routing protocols, redundancy, spanning-tree protocol, security enhancements, network management and monitoring, as well as wireless configuration. Additionally, I verified and corrected configuration of devices using show commands to ensure proper setup. Given the large number of devices that needed to be configured without the use of network automation or SDN, I utilized a notepad to document commands and reused them when the same configuration was required on multiple devices. Through careful planning and execution of each task, I ensured the network is highly resilient and scalable, ready to support future growth.
 
