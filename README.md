@@ -13,7 +13,7 @@ This Lab focuses on demonstrating the fundamental concepts to set up a a basic n
 - [Jeremy's IT Lab CCNA Mega Lab](https://jitl.jp/mega-lab)
 
 **Source Command List**
-- [Small Office Network Source Command](https://github.com/AllanMontalvo/Small-Office-Network-Source-Command/blob/main/README.md)
+- [Small Office Network Deployment Source Command](https://github.com/AllanMontalvo/Small-Office-Network-Source-Command/blob/main/README.md)
 
 <h2>High-Level Deployment and Configuration Steps</h2>
 
