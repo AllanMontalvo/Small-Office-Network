@@ -2,7 +2,7 @@
 
 ![image](https://github.com/user-attachments/assets/3ce00251-40a6-4e38-a17a-42df0e5d8261)
 
-This Lab focuses on demonstrating the fundamental concepts to set up a a basic network for a small office. It covers the essential elements of networking, such as hardware configuration and network setup. The goal is to establish a functional network tailored to the requirements of the lab from Jeremy's IT Lab.
+This Lab focuses on demonstrating the fundamental concepts to set up and deploy a basic network for a small office. It covers the essential elements of networking, such as hardware configuration and network setup. The goal is to establish a functional network tailored to the requirements of the lab from Jeremy's IT Lab.
 
 <h1>Environments and Technologies Used</h1>
 
