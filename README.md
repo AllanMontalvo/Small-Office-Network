@@ -1,4 +1,4 @@
-# Small-Office-Network
+# Small-Office-Network-Deployment
 
 ![image](https://github.com/user-attachments/assets/3ce00251-40a6-4e38-a17a-42df0e5d8261)
 
